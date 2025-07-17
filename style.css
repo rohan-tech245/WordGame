@@ -1,0 +1,145 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #111, #333);
+  color: white;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+
+.level-map {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 0 20px;
+  height: 3200px; /* tall container for vertical zigzag */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.level-btn {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 50%;
+  border: 2px solid #444;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s;
+  z-index: 2;
+  background: linear-gradient(to bottom, #ccc, #eee); /* default */
+}
+
+.level-btn.unlocked {
+  background: radial-gradient(circle at 30% 30%, gold, orange);
+  box-shadow: 0 0 12px gold;
+  color: white;
+}
+
+.level-btn.locked {
+  background: linear-gradient(#aaa, #ccc);
+  color: #222;
+  box-shadow: inset 0 0 5px #aaa;
+  cursor: not-allowed;
+}
+
+.level-btn:hover:not(.locked) {
+  transform: scale(1.1);
+}
+
+svg.chain-line {
+  position: absolute;
+  width: 150px;
+  height: 100px;
+  pointer-events: none;
+  overflow: visible;
+}
+
+
+.chain-glow-gold {
+  filter: url(#glow-gold);
+}
+
+.chain-glow-silver {
+  filter: url(#glow-silver);
+}
+
+@keyframes chainBreak {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.05) rotate(-5deg); }
+  50% { transform: scale(1.1) rotate(5deg); }
+  75% { transform: scale(1.05) rotate(-5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.breaking {
+  animation: chainBreak 0.5s ease;
+}
+/* Locked level styling */
+.level-button.locked {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.lock-icon {
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* Shake animation */
+.locked.shake .lock-icon {
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(-15deg); }
+  40% { transform: rotate(15deg); }
+  60% { transform: rotate(-10deg); }
+  80% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+.footer {
+  margin-top: 60px;
+  padding: 20px;
+  text-align: center;
+  background-color: #11111141;
+  color: rgba(200, 200, 200, 0.85);
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  border-top: 1px solid #333;
+}
+
+footer button{
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #666;
+  border-radius: 16%;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  width: 100px;
+}
+
+footer button:hover {
+  background-color: #e2e2e2;
+  color:#222;
+  box-shadow: 1px 1px 10px white;
+}
+

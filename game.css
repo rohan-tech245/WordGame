@@ -1,0 +1,364 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(#111, #333);
+  color: white;
+  padding: 16px;
+  text-align: center;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.top-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.top-button {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.top-button:hover {
+  background: #666;
+}
+
+.back-button {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+input {
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* Responsive layout */
+@media (max-width: 480px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .top-left,
+  .top-right {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .top-button {
+    flex: 1;
+    font-size: 0.95rem;
+  }
+
+  .score {
+    font-size: 1rem;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0);
+  }
+
+  25% {
+    transform: translate(-10px, 0);
+  }
+
+  50% {
+    transform: translate(10px, 0);
+  }
+
+  75% {
+    transform: translate(-10px, 0);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes redFlash {
+  0% {
+    background-color: #111;
+  }
+
+  50% {
+    background-color: #b30000;
+  }
+
+  100% {
+    background-color: #111;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  /* white background */
+  color: #222;
+  /* dark text color for visibility */
+  padding: 30px 40px;
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #444;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+.modal-buttons {
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.modal-buttons button:hover {
+  background-color: #2980b9;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.reveal-animation {
+  animation: wordReveal 0.5s ease;
+}
+
+@keyframes wordReveal {
+  0% {
+    transform: scale(1);
+    color: white;
+  }
+
+  50% {
+    transform: scale(1.3);
+    color: gold;
+    text-shadow: 0 0 10px gold;
+  }
+
+  100% {
+    transform: scale(1);
+    color: rgb(255, 255, 255);
+  }
+}
+
+#scoreboardModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#scoreboardModal .modal-content {
+  background: white;
+  padding: 30px;
+  text-align: center;
+  border-radius: 20px;
+  max-width: 400px;
+}
+
+/* Modal background fade-in */
+#scoreboardModal {
+  background: rgba(0, 0, 0, 0.7);
+  animation: fadeInBackground 0.5s ease forwards;
+}
+
+@keyframes fadeInBackground {
+  from {
+    background: rgba(0, 0, 0, 0);
+  }
+
+  to {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* Modal content bounce-in */
+#scoreboardModal .modal-content {
+  transform: scale(0.7);
+  opacity: 0;
+  animation: bounceIn 0.6s ease forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  80% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Buttons style */
+#scoreboardModal button {
+  background-color: #007BFF;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 10px;
+  padding: 12px 25px;
+  margin: 10px 5px 0 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#scoreboardModal button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Text styling */
+#scoreboardModal h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+#scoreboardModal p {
+  font-size: 18px;
+  margin: 8px 0;
+  color: #444;
+  font-weight: 600;
+}
+
+/* Responsive tweak */
+@media (max-width: 480px) {
+  #scoreboardModal .modal-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  #scoreboardModal button {
+    width: 100%;
+    margin: 8px 0 0 0;
+  }
+}

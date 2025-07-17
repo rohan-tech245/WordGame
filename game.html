@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Play Levels | Word Guessing Game </title>
+  <link rel="stylesheet" href="game.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <!-- favicon -->
+   <link rel="shortcut icon" href="./DevMandu.jpg" type="image/x-icon">
+</head>
+<body>
+  <div class="top-bar">
+    <!-- Left: Score + Back -->
+    <div class="top-left">
+      <div class="score" id="score">Score: 0</div>
+      <button id="backBtn" class="back-button">⬅️ Back</button>
+    </div>
+
+    <!-- Right: Pause / Resume / Mute -->
+<div class="top-right">
+  <button id="pauseBtn" class="top-button">⏸</button>
+  <button id="resumeBtn" class="top-button" style="display:none;">▶</button>
+  <button id="muteBtn" class="top-button">🔊</button>
+  <button id="unmuteBtn" class="top-button" style="display:none;">🔇</button>
+</div>
+  </div>
+
+  <div class="game-container">
+    <div class="timer" id="timer">⏱ 90s</div>
+    <p class="clue" id="clue">Clue will appear here...</p>
+    <input type="text" id="guessInput" placeholder="Your guess..." />
+    <button id="submitBtn">Submit</button>
+    <p id="message"></p>
+
+    <div class="controls">
+      <button id="retryBtn" style="display:none;">🔁 Retry</button>
+      <button id="quitBtn" style="display:none;">❌ Quit</button>
+      <button id="nextLevelBtn" style="display:none;">✅ Next Level</button>
+    </div>
+  </div>
+<!-- 🎉 Win/Lose Modal -->
+<div id="resultModal" class="modal" style="display: none;">
+  <div class="modal-content" id="modalContent">
+    <h2 id="resultTitle">You Won!</h2>
+    <div class="modal-buttons">
+      <button id="modalRetryBtn">🔁 Retry</button>
+      <button id="modalQuitBtn">❌ Quit</button>
+      <button id="modalNextBtn" style="display: none;">➡️ Next Level</button>
+    </div>
+  </div>
+</div>
+<!-- Final Scoreboard Modal -->
+<div id="scoreboardModal" class="modal">
+  <div class="modal-content">
+    <span id="closeScoreboard" class="close-btn">✖</span>
+    <h2>🎉 Game Complete!</h2>
+    <p id="finalScoreText">🏆 Final Score: </p>
+    <p id="correctWordsText">✅ Correct Words: </p>
+    <p id="wrongGuessesText">❌ Wrong Guesses: </p>
+    <p id="perfectLevelsText">💯 Perfect Levels: </p>
+    <div class="modal-buttons">
+      <button id="restartGameBtn">🔄 Restart</button>
+      <button id="viewLevelsBtn">📋 View Levels</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <script src="game.js"></script>
+
+</body>
+
+
+</html>

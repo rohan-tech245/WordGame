@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Word Game - Levels Map | Developed by DevMandu Studio</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- favicon -->
+   <link rel="shortcut icon" href="./DevMandu.jpg" type="image/x-icon">
+</head>
+<body>
+  <h1 class="title">Word Guessing Game </h1>
+  <div id="levelContainer" class="level-map"></div>
+
+  <svg width="0" height="0">
+    <defs>
+      <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="gold"/>
+        <stop offset="100%" stop-color="orange"/>
+      </linearGradient>
+      <linearGradient id="silver-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#bbb"/>
+        <stop offset="100%" stop-color="#eee"/>
+      </linearGradient>
+      <filter id="glow-gold">
+        <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="gold"/>
+      </filter>
+      <filter id="glow-silver">
+        <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="silver"/>
+      </filter>
+    </defs>
+  </svg>
+ <!-- Feedback Button and Modal -->
+<footer style="color: rgba(161, 149, 149, 0.836); text-align: center; margin: 5% auto;">
+  <h2>© 2025 DevMandu Studio. All rights reserved.</h2>
+  <button id="openFeedbackBtn" onclick="openFeedback()">💬 Feedback</button>
+</footer>
+  <script src="script.js"></script>
+</body>
+</html>

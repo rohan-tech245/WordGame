@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> DevMandu Studio | Form Fill Up</title>
+    <style>
+
+
+        .contact-form {
+                width: 70%;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                padding: 30px;
+                background: white;
+            }
+
+            .contact-form h1 {
+                text-align: center;
+                font-family: Arial, sans-serif;
+                color: #333;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                padding: 12px 15px;
+                font-size: 1rem;
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                outline: none;
+                transition: 0.3s;
+                font-family: Arial, sans-serif;
+            }
+
+            .contact-form input:focus,
+            .contact-form textarea:focus {
+                border-color: #007bff;
+                box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            }
+
+            .contact-form textarea {
+                resize: none;
+                height: 120px;
+            }
+
+            .contact-form .Send {
+                background-color: #007bff;
+                color: white;
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+                transition: 0.3s;
+                /* width: 150px; */
+                margin-left: 200px;
+            }
+
+            .contact-form .Send:hover {
+                background-color: #0056b3;
+            }
+
+    </style>
+</head>
+
+<body>
+
+        <form class="contact-form">
+            <h1>Send Feedback</h1>
+            <input type="text" name="name" required placeholder="Name">
+            <input type="email" name="email" required placeholder="E-mail">
+            <textarea name="message" required placeholder="Your Message for DevMandu Studio"></textarea>
+            <input type="submit" class="Send" value="Send">
+        </form>
+
+</body>
+
+</html>
